@@ -2,12 +2,16 @@
     "name": "regit",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "file": [
+        "dist"
+    ],
     "scripts": {
         "cz": "cz",
         "preinstall": "npx only-allow pnpm",
         "lint": "eslint ./ --ext .ts,.js,.json --max-warnings=0",
-        "format": "prettier --config .prettierrc . --write"
+        "format": "prettier --config .prettierrc . --write",
+        "typecheck": "tsc --noEmit",
+        "release": "npm run typecheck && release-it"
     },
     "private": "true",
     "engines": {
@@ -19,6 +23,8 @@
         "@changesets/cli": "^2.26.2",
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.54.0",
-        "lint-staged": "^15.1.0"
-    }
+        "lint-staged": "^15.1.0",
+        "release-it": "^17.5.0"
+    },
+    "release-it": {}
 }
